@@ -1,0 +1,15 @@
+services:
+  site:
+    build: .
+    image: meu-site:1.0
+    container_name: meu_site
+    ports:
+      - "8080:80"
+
+  outro:
+    image: nginx:alpine
+    container_name: segundo_site
+    ports:
+      - "8081:80"
+    volumes:
+      - ./site2:/usr/share/nginx/html:ro
